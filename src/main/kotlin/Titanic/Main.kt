@@ -8,17 +8,19 @@ fun main(){
     val todasPersonas = DAOPersonas
     val todosBotes = DAOBotes
     val listaAsignacion = mutableListOf<Asignacion>()
+    val listaPersonas = todasPersonas.obtenerListasPersonas()
 
     var minutos = 0
 
-    var listaZonas = mutableListOf<Zona>()
+    val listaZonas = mutableListOf<Zona>()
     listaZonas.addAll(Zona.values().toList())
 
-    while (minutos != todasPersonas.obtenerListasPersonas().size){
+    while (listaPersonas.size != 0){
         minutos += 1
         for (zona in listaZonas){
-            var listatempPersonas = todasPersonas.obtenerPersonasZona(zona) //Obtiene la lista de personas en una zona concreta.
-            var listatempBotes = todosBotes.obtenerBotesZona(zona) //Obtiene la lista de botes en una zona concreta.
+            val listatempPersonas = todasPersonas.obtenerPersonasZona(zona) //Obtiene la lista de personas en una zona concreta.
+            val listatempBotes = todosBotes.obtenerBotesZona(zona) //Obtiene la lista de botes en una zona concreta.
+
             when(zona){
                 Zona.PROA ->{
                     if(listatempPersonas.isNotEmpty()){
@@ -38,12 +40,15 @@ fun main(){
 
                 }
 
-                else -> {}
+                Zona.BABOR ->{
+
+                }
+                Zona.ESTRIBOR ->{
+
+                }
+
             }
         }
-
-
     }
-    println(listaAsignacion)
 
 }
