@@ -1,13 +1,13 @@
-package Titanic.Utilidades
+package Titanic.Controlador
 
-import Titanic.Enum.Edad
+import Titanic.Modelo.Enum.Edad
 import java.time.LocalDate
 import java.time.Period
 import java.time.format.DateTimeFormatter
 
 // Calcula la edad a partir de la fecha de nacimiento
 fun calcularEdad(fechaNac: String): Int {
-    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd") // Asume un formato de fecha "yyyy-MM-dd"
+    val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
     val fechaNacimiento = LocalDate.parse(fechaNac, formatter)
     val fechaActual = LocalDate.now()
     val edad = Period.between(fechaNacimiento, fechaActual).years

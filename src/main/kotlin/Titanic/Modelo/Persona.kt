@@ -1,7 +1,9 @@
-package Titanic
+package Titanic.Modelo
 
-import Titanic.Enum.Pais
-import Titanic.Enum.Zona
+import Titanic.Controlador.determinarCategoriaEdad
+import Titanic.Modelo.Enum.Edad
+import Titanic.Modelo.Enum.Pais
+import Titanic.Modelo.Enum.Zona
 
 
 abstract class Persona(DNI:String, Pais: Pais, Zona: Zona, Nombre:String, Minusvalia: Boolean, FechaNac: String){
@@ -20,6 +22,10 @@ abstract class Persona(DNI:String, Pais: Pais, Zona: Zona, Nombre:String, Minusv
 
     var fechaNac_persona = FechaNac;
 
+    var edadPersona:Edad = determinarCategoriaEdad(fechaNac_persona)
+
+
+
 
     //Métodos para la obtención de atributos privados.
     fun getDNi():String {
@@ -34,5 +40,8 @@ abstract class Persona(DNI:String, Pais: Pais, Zona: Zona, Nombre:String, Minusv
         return zona_persona
     }
 
+    override fun toString(): String {
+        return " Nombre: $nombre_persona  \n Zona: $zona_persona  \n Edad: $edadPersona"
+    }
 }
 

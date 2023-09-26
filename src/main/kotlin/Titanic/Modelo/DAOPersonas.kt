@@ -1,21 +1,24 @@
-import Titanic.*
-import Titanic.Enum.NivelResponsabilidad
-import Titanic.Enum.Pais
-import Titanic.Enum.Zona
+package Titanic.Modelo
 
-//DAOPersonas es un objeto debido a que solo vamos a crear una instancia.
+import Titanic.Modelo.Enum.NivelResponsabilidad
+import Titanic.Modelo.Enum.Pais
+import Titanic.Modelo.Enum.Zona
+
+//Titanic.Modelo.DAOPersonas es un objeto debido a que solo vamos a crear una instancia.
 
 object DAOPersonas {
-    private val listapersonas = mutableListOf<Persona>()
+    private var listapersonas = mutableListOf<Persona>()
 
     init {
         val pasajero1 = Pasajero("33632925W", Pais.ESPAÑA, Zona.BABOR, "Antonio", false, "20/08/2003", 32)
         val pasajero2 = Pasajero("77699138D", Pais.ALEMANIA, Zona.ESTRIBOR, "Maria", true, "30/06/1994", 32)
+        val pasajero3 = Pasajero("33445566C", Pais.ALEMANIA, Zona.PROA, "Emilio", false, "14/07/2020", 31)
         val Tripulante1 = Tripulacion("18473283M", Pais.FRANCIA, Zona.POPA, "Pedro", false, "03/04/1970", NivelResponsabilidad.BAJA)
         val Tripulante2 = Tripulacion("81013196C", Pais.ITALIA, Zona.PROA, "Isabel", false, "24/04/2004", NivelResponsabilidad.MUY_BAJA)
         val Capitan = Tripulacion("66481204A", Pais.PORTUGAL, Zona.POPA, "Agustin", false, "30/09/2015", NivelResponsabilidad.CAPITAN)
         listapersonas.add(pasajero1)
         listapersonas.add(pasajero2)
+        listapersonas.add(pasajero3)
         listapersonas.add(Tripulante1)
         listapersonas.add(Tripulante2)
         listapersonas.add(Capitan)
@@ -23,6 +26,10 @@ object DAOPersonas {
 
     fun obtenerListasPersonas():MutableList<Persona>{
         return listapersonas
+    }
+
+    fun personaEvacuaelBarco(PersonaEvacua:Persona){
+        listapersonas.remove(PersonaEvacua)
     }
 
     fun obtenerPersonasZona(ZonaBarco:Zona):MutableList<Persona>{

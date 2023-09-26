@@ -1,6 +1,6 @@
-package Titanic
+package Titanic.Modelo
 
-import Titanic.Enum.Zona
+import Titanic.Modelo.Enum.Zona
 
 data class BoteSalvavida(private val id: Int,
                     private val numeroPlazas: Int,
@@ -38,7 +38,8 @@ data class BoteSalvavida(private val id: Int,
 
 
 
+
     override fun toString(): String {
-        return "Bote: $id \n Numero de plazas $numeroPlazas \n Zona: $zonaBarco \n Escaleras: $escaleras \n"
+        return " Bote: $id \n Numero de plazas $numeroPlazas \n Zona: $zonaBarco \n Escaleras: $escaleras \n"
     }
 }

@@ -1,7 +1,7 @@
-package Titanic
+package Titanic.Modelo
 
-import Titanic.Enum.Pais
-import Titanic.Enum.Zona
+import Titanic.Modelo.Enum.Pais
+import Titanic.Modelo.Enum.Zona
 
 class Pasajero(DNI:String, Pais: Pais, Zona: Zona, Nombre:String, Minusvalia: Boolean, FechaNac: String, NumHabitacion: Int): Persona(DNI, Pais, Zona, Nombre, Minusvalia, FechaNac) {
 
